@@ -4,7 +4,7 @@ import OpenAI from "openai";
 export async function POST({ request }) {
   try {
     const kimi = new OpenAI({
-      aapiKey: platform.env.KIMI_API_KEY,
+      apiKey: platform.env.KIMI_API_KEY,
       baseURL: "https://api.moonshot.ai/v1",
     });
 
