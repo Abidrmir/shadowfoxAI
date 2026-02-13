@@ -1,10 +1,20 @@
 import { json } from "@sveltejs/kit";
 import OpenAI from "openai";
 
-export async function POST({ request }) {
+export async function POST({ request, platform }) {
   try {
+    // Get API key from platform.env (Cloudflare) or fallback
+    const apiKey = platform?.env?.KIMI_API_KEY;
+    
+    if (!apiKey) {
+      return json(
+        { success: false, error: "API key not configured" },
+        { status: 500 }
+      );
+    }
+
     const kimi = new OpenAI({
-      apiKey: platform.env.KIMI_API_KEY,
+      apiKey: apiKey,
       baseURL: "https://api.moonshot.ai/v1",
     });
 
