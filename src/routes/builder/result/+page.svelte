@@ -2,7 +2,7 @@
 	import { onMount } from 'svelte';
 	import { browser } from '$app/environment';
 	import { goto } from '$app/navigation';
-	import { getImageData } from '$lib/imageStore';
+	import { getImageData } from '$lib/imagestore.js';
 
 	let result = $state(null);
 	let isProcessing = $state(true);
