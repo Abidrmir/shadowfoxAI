@@ -3,7 +3,7 @@
   import { goto } from "$app/navigation";
   import { browser } from "$app/environment";
   import Navbar from "../../../components/navbar.svelte";
-  import { setImageData } from "$lib/imageStore";
+  import { setImageData } from '$lib/imagestore.js';
 
   let currentStep = $derived(Number($page.params.step));
 
