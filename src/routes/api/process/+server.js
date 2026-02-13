@@ -1,11 +1,10 @@
 import { json } from "@sveltejs/kit";
 import OpenAI from "openai";
-import { KIMI_API_KEY } from "$env/static/private";
 
 export async function POST({ request }) {
   try {
     const kimi = new OpenAI({
-      apiKey: KIMI_API_KEY,
+      aapiKey: process.env.KIMI_API_KEY,
       baseURL: "https://api.moonshot.ai/v1",
     });
 
