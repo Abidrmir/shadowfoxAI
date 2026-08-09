@@ -1,9 +1,10 @@
 import { json } from '@sveltejs/kit';
+import { env } from '$env/dynamic/private';
 import OpenAI from 'openai';
 
 export async function POST({ request, platform }) {
 	try {
-		const apiKey = platform?.env?.KIMI_API_KEY;
+		const apiKey = platform?.env?.KIMI_API_KEY ?? env.KIMI_API_KEY;
 
 		if (!apiKey) {
 			return json({ success: false, error: 'API key not configured' }, { status: 500 });
