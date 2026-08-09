@@ -197,25 +197,11 @@
 		<div class="h-screen w-full">
 			<iframe
 				class="h-full w-full border-8 transition-colors duration-500
-					{isUpdating ? 'animate-border-pulse' : 'border-red-500'}"
+					{isUpdating ? 'animate-border-pulse' : 'border-orange-400'}"
 				srcdoc={result}
 				title="Generated Website"
 			></iframe>
 		</div>
-
-		<!-- Invisible hover zone at the bottom (always present) -->
-		<!-- svelte-ignore a11y_no_static_element_interactions -->
-		<div
-			class="fixed bottom-0 left-0 z-40 h-24 w-full"
-			onmouseenter={() => {
-				barHovered = true;
-				if (barManuallyHidden) return;
-				barVisible = true;
-			}}
-			onmouseleave={() => {
-				barHovered = false;
-			}}
-		></div>
 
 		<!-- Small "Edit" button visible when bar is hidden -->
 		{#if !barVisible || barManuallyHidden}
@@ -230,7 +216,7 @@
 		<!-- Floating edit bar -->
 		<!-- svelte-ignore a11y_no_static_element_interactions -->
 		<div
-			class="fixed bottom-0 left-0 z-50 w-full transition-all duration-300 ease-in-out"
+			class="fixed w-full bottom-0 left-0 z-50 transition-all duration-400 ease-in-out"
 			class:translate-y-0={barVisible && !barManuallyHidden}
 			class:translate-y-full={!barVisible || barManuallyHidden}
 			onmouseenter={() => {
@@ -255,7 +241,7 @@
 						onclick={() => (historyVisible = !historyVisible)}
 						class="rounded-full bg-white/90 px-3 py-1 text-xs text-gray-500 shadow backdrop-blur-sm transition-colors hover:text-gray-800"
 					>
-						{historyVisible ? 'Hide History ▾' : 'Show History ▴'}
+						{historyVisible ? 'Hide History' : 'Show History'}
 					</button>
 				{/if}
 			</div>
@@ -291,7 +277,7 @@
 						onkeydown={handleKeydown}
 						placeholder="Describe a change... e.g. Make the header blue"
 						disabled={isUpdating}
-						class="flex-1 rounded-xl bg-gray-100 px-4 py-2.5 text-sm ring-1 ring-gray-200 transition-all outline-none focus:ring-2 focus:ring-blue-400"
+						class="flex-1 rounded-xl bg-gray-100 px-4 py-2 text-sm ring-1 ring-gray-200 transition-all outline-none focus:ring-2 focus:ring-blue-400"
 					/>
 					<button
 						onclick={sendUpdate}

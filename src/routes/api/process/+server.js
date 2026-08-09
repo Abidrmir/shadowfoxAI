@@ -3,7 +3,6 @@ import OpenAI from 'openai';
 
 export async function POST({ request, platform }) {
 	try {
-		// Get API key from platform.env (Cloudflare) or fallback
 		const apiKey = platform?.env?.KIMI_API_KEY;
 
 		if (!apiKey) {
@@ -11,7 +10,7 @@ export async function POST({ request, platform }) {
 		}
 
 		const kimi = new OpenAI({
-			apiKey: apiKey,
+			apiKey,
 			baseURL: 'https://api.moonshot.ai/v1'
 		});
 

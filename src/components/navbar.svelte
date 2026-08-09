@@ -1,6 +1,6 @@
 <div class="mx-10 my-10 flex flex-row items-center justify-between">
 	<div>
-		<a class="font-serif text-3xl" href="/">Shadow<span class="text-blue-700">Fox</span></a>
+		<a class="font-serif text-5xl" href="/">June</a>
 	</div>
 	<div class="space-x-4 text-lg">
 		<a href="/contact">Contact</a>
